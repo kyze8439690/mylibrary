@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public class GsonRequest<T> extends BaseRequest<T> {
+public class GsonRequest<T extends BaseResponse> extends BaseRequest<T> {
 
     private static final Gson gson = new Gson();
 

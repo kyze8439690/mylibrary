@@ -17,7 +17,7 @@ public abstract class BaseRequest<T> extends Request<T>{
         mListener = listener;
     }
 
-    private static String buildUrl(String url, Param... params) {
+    public static String buildUrl(String url, Param... params) {
         if (params == null) {
             return url;
         }
@@ -30,7 +30,9 @@ public abstract class BaseRequest<T> extends Request<T>{
 
     @Override
     protected void deliverResponse(T response) {
-        mListener.onResponse(response);
+        if (mListener != null) {
+            mListener.onResponse(response);
+        }
     }
 
     @Override
