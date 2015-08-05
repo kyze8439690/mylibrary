@@ -4,12 +4,12 @@ import android.os.SystemClock;
 import android.view.View;
 
 public class OnViewClickListener implements View.OnClickListener {
-    private static final long mInterval = 200;
+    private static final long INTERVAL = 200;
     private long t = 0l;
 
     @Override
     public void onClick(View v) {
-        if (SystemClock.elapsedRealtime() - t < mInterval) {
+        if (SystemClock.elapsedRealtime() - t < INTERVAL) {
             return;
         }
         t = SystemClock.elapsedRealtime();
