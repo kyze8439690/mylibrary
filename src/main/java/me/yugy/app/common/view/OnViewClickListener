@@ -1,0 +1,21 @@
+package me.yugy.app.common.view;
+
+import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.text.TextPaint;
+import android.text.style.ForegroundColorSpan;
+
+public class OnViewClickListener implements View.OnClickListener {
+    private static final long mInterval = 200;
+    private long t = 0l;
+
+    @Override
+    public void onClick(View v) {
+        if (SystemClock.elapsedRealtime() - t < mInterval) {
+            return;
+        }
+        t = SystemClock.elapsedRealtime();
+        onViewClick(v);
+    }
+    protected abstract void onViewClick(View v);
+}
