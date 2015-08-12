@@ -19,15 +19,6 @@ public class ArrayUtils {
         return strings;
     }
 
-    public static String[] getWeiboPicArray(JSONArray jsonArray) throws JSONException {
-        String[] picArray = new String[jsonArray.length()];
-        int jsonSize = picArray.length;
-        for(int i = 0; i < jsonSize; i++){
-            picArray[i] = jsonArray.getJSONObject(i).getString("thumbnail_pic");
-        }
-        return picArray;
-    }
-
     public static final String strSeparator = "__,__";
 
     public static String convertArrayToString(String[] array){
