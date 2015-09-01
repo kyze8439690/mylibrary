@@ -9,6 +9,13 @@ import me.yugy.app.common.network.RequestManager;
 public class BaseFragment extends Fragment {
 
     private boolean mIsFirstResume = false;
+    private Object mTag;
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTag = new Object();
+    }
 
     @Override
     public void onResume() {
@@ -25,7 +32,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void addRequest(Request request) {
-        addRequest(request, this);
+        addRequest(request, mTag);
     }
 
     public void addRequest(Request request, Object tag) {
@@ -39,7 +46,7 @@ public class BaseFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        RequestManager.getInstance(getActivity()).cancelAll(this);
+        RequestManager.getInstance(getActivity()).cancelAll(mTag);
         super.onDestroy();
     }
 }
