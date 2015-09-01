@@ -10,6 +10,13 @@ import me.yugy.app.common.network.RequestManager;
 public class BaseActivity extends AppCompatActivity {
 
     private boolean mIsFirstResume = false;
+    private Object mTag;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTag = new Object();
+    }
 
     @Override
     protected void onResume() {
@@ -30,7 +37,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void addRequest(Request request) {
-        addRequest(request, this);
+        addRequest(request, mTag);
     }
 
     public void addRequest(Request request, Object tag) {
@@ -44,7 +51,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        RequestManager.getInstance(this).cancelAll(this);
+        RequestManager.getInstance(this).cancelAll(mTag);
         super.onDestroy();
     }
 }
