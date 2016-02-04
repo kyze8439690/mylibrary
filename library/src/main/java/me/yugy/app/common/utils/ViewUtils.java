@@ -31,20 +31,4 @@ public class ViewUtils {
             view.onFinishTemporaryDetach();
         }
     }
-
-    public static void offsetChildrenTopAndBottom(ViewGroup viewGroup, int offset) {
-        final int count = viewGroup.getChildCount();
-        for (int i = 0; i < count; i++) {
-            final View child = viewGroup.getChildAt(i);
-            child.offsetTopAndBottom(offset);
-        }
-    }
-
-    public static void offsetChildrenLeftAndRight(ViewGroup viewGroup, int offset) {
-        final int count = viewGroup.getChildCount();
-        for (int i = 0; i < count; i++) {
-            final View child = viewGroup.getChildAt(i);
-            child.offsetLeftAndRight(offset);
-        }
-    }
 }
