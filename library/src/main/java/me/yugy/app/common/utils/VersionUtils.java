@@ -20,4 +20,12 @@ public class VersionUtils {
     public static boolean gingerbreadOrLater() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
     }
+
+    public static boolean honeyCombOrLater() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+    }
+
+    public static boolean marshMallowOrLater() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
 }
