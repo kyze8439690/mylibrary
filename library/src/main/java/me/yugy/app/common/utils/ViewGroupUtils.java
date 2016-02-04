@@ -6,14 +6,17 @@ import android.view.ViewGroup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class ViewGroupUtils extends ViewUtils {
+import me.yugy.app.common.compat.ViewCompat;
+
+@SuppressWarnings("unused")
+public class ViewGroupUtils {
 
     public static void offsetChildrenTopAndBottom(ViewGroup viewGroup, int offset) {
         if (!offsetChildrenTopAndBottomReflect(viewGroup, offset)) {
             final int count = viewGroup.getChildCount();
             for (int i = 0; i < count; i++) {
                 final View child = viewGroup.getChildAt(i);
-                child.offsetTopAndBottom(offset);
+                ViewCompat.offsetTopAndBottom(child, offset);
             }
         }
     }
@@ -23,7 +26,7 @@ public class ViewGroupUtils extends ViewUtils {
             final int count = viewGroup.getChildCount();
             for (int i = 0; i < count; i++) {
                 final View child = viewGroup.getChildAt(i);
-                child.offsetLeftAndRight(offset);
+                ViewCompat.offsetLeftAndRight(child, offset);
             }
         }
     }
