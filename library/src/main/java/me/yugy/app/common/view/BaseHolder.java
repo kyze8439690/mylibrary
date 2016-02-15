@@ -7,7 +7,7 @@ import butterknife.ButterKnife;
 @SuppressWarnings("unused")
 public abstract class BaseHolder<T> {
 
-    View rootView;
+    public View rootView;
 
     public BaseHolder(View view) {
         rootView = view;
