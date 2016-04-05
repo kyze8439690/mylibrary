@@ -1,12 +1,11 @@
 package me.yugy.app.common.utils;
 
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import me.yugy.app.common.compat.ViewCompat;
 
 @SuppressWarnings("unused")
 public class ViewGroupUtils {

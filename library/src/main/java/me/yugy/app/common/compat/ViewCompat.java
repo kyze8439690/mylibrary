@@ -7,7 +7,7 @@ import android.view.View;
 import me.yugy.app.common.utils.VersionUtils;
 
 @SuppressWarnings("unused")
-public class ViewCompat extends android.support.v4.view.ViewCompat {
+public class ViewCompat {
 
     public static void setBackground(View view, Drawable background) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
