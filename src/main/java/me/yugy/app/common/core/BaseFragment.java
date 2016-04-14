@@ -38,7 +38,7 @@ public class BaseFragment extends Fragment {
             return super.onCreateView(inflater, container, savedInstanceState);
         } else {
             View rootView = inflater.inflate(getLayoutId(), container, false);
-            ButterKnife.inject(this, rootView);
+            ButterKnife.bind(this, rootView);
             return rootView;
         }
     }

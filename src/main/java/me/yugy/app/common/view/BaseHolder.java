@@ -11,7 +11,7 @@ public abstract class BaseHolder<T> {
 
     public BaseHolder(View view) {
         rootView = view;
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         view.setTag(this);
     }
 
