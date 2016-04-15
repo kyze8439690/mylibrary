@@ -1,4 +1,4 @@
-package me.yugy.app.common.view;
+package me.yugy.app.common.core;
 
 import android.view.View;
 

@@ -1,5 +1,7 @@
 package me.yugy.app.common.network;
 
+import android.support.annotation.Nullable;
+
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Response;
@@ -13,10 +15,9 @@ import java.lang.reflect.Type;
 @SuppressWarnings("unused")
 public class GsonRequest<T extends BaseResponse> extends BaseRequest<T> {
 
-    private static final Gson gson = new Gson();
-
-    public GsonRequest(int method, String url, Param[] params,
-                       Response.Listener<T> listener, Response.ErrorListener errorListener) {
+    public GsonRequest(int method, String url, @Nullable Param[] params,
+                       @Nullable Response.Listener<T> listener,
+                       @Nullable Response.ErrorListener errorListener) {
         super(method, url, params, listener, errorListener);
     }
 
@@ -37,7 +38,6 @@ public class GsonRequest<T extends BaseResponse> extends BaseRequest<T> {
 
     public T parseJson(String json) {
         Type type = ((ParameterizedType) ((Object)this).getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        //noinspection unchecked
-        return (T) gson.fromJson(json, type);
+        return new GsonHelper().loads(json, type);
     }
 }

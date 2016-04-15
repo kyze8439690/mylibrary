@@ -1,23 +1,27 @@
 package me.yugy.app.common.network;
 
 import android.net.Uri;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import me.yugy.app.common.utils.DebugUtils;
+
 public abstract class BaseRequest<T> extends Request<T>{
 
-    private final Response.Listener<T> mListener;
+    @Nullable private final Response.Listener<T> mListener;
 
-    public BaseRequest(int method, String url, Param[] params, Response.Listener<T> listener,
-                       Response.ErrorListener errorListener) {
+    public BaseRequest(int method, String url, @Nullable Param[] params,
+                       @Nullable Response.Listener<T> listener,
+                       @Nullable Response.ErrorListener errorListener) {
         super(method, buildUrl(url, params), errorListener);
         mListener = listener;
     }
 
-    public static String buildUrl(String url, Param... params) {
+    public static String buildUrl(String url, @Nullable  Param... params) {
         if (params == null) {
             return url;
         }
@@ -39,7 +43,7 @@ public abstract class BaseRequest<T> extends Request<T>{
     public void deliverError(VolleyError error) {
         try {
             String response = new String(error.networkResponse.data);
-            Log.e("Volley", response);
+            DebugUtils.log("DeliverError: " + response);
         } catch (NullPointerException ignored) {}
         super.deliverError(error);
     }

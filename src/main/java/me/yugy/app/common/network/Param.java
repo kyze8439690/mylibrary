@@ -11,6 +11,16 @@ public class Param {
         mValue = value;
     }
 
+    public Param(String key, int value) {
+        mKey = key;
+        mValue = String.valueOf(value);
+    }
+
+    public Param(String key, long value) {
+        mKey = key;
+        mValue = String.valueOf(value);
+    }
+
     public String getValue() {
         return mValue;
     }
