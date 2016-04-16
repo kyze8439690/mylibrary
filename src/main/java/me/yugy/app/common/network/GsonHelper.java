@@ -41,4 +41,8 @@ public class GsonHelper {
             return null;
         }
     }
+
+    public String dump(Object src) {
+        return sInstance.toJson(src);
+    }
 }
