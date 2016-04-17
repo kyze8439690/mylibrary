@@ -64,7 +64,7 @@ public class SQLiteTable {
         db.execSQL(stringBuilder.toString());
     }
 
-    public void delete(final SQLiteDatabase db){
+    public void drop(final SQLiteDatabase db){
         db.execSQL("DROP TABLE IF EXISTS " + mTableName);
     }
 
