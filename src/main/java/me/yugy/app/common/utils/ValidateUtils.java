@@ -7,15 +7,15 @@ import me.yugy.app.common.network.Validator;
 @SuppressWarnings("unused")
 public class ValidateUtils {
 
-    public static boolean check(Validator.Validate data) {
-        return data != null && data.checkValidate();
+    public static boolean check(Validator.Validatable data) {
+        return data != null && data.validate();
     }
 
-    public static boolean check(Validator.Validate[] array) {
+    public static boolean check(Validator.Validatable[] array) {
         if (array == null) {
             return false;
         }
-        for (Validator.Validate item : array) {
+        for (Validator.Validatable item : array) {
             if (!check(item)) {
                 return false;
             }
@@ -23,7 +23,7 @@ public class ValidateUtils {
         return true;
     }
 
-    public static <T extends Validator.Validate> boolean check(List<T> list) {
+    public static <T extends Validator.Validatable> boolean check(List<T> list) {
         if (list == null) {
             return false;
         }
