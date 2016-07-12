@@ -7,17 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.widget.BaseAdapter {
 
-    @NonNull private ArrayList<T> mData = new ArrayList<>();
+    @NonNull private List<T> mData = new ArrayList<>();
 
-    public BaseAdapter(@Nullable ArrayList<T> data) {
+    public BaseAdapter(@Nullable List<T> data) {
         setData(data);
     }
 
-    public void setData(@Nullable ArrayList<T> data) {
+    public void setData(@Nullable List<T> data) {
         if (data == null) {
             data = new ArrayList<>();
         }
@@ -26,7 +27,7 @@ public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.wi
     }
 
     @NonNull
-    public ArrayList<T> getData() {
+    public List<T> getData() {
         return mData;
     }
 
