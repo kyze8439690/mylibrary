@@ -12,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.widget.BaseAdapter {
 
-    @NonNull private List<T> mData = new ArrayList<>();
+    @NonNull private ArrayList<T> mData = new ArrayList<>();
 
     public BaseAdapter(@Nullable List<T> data) {
         setData(data);
@@ -22,12 +22,12 @@ public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.wi
         if (data == null) {
             data = new ArrayList<>();
         }
-        mData = data;
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 
     @NonNull
-    public List<T> getData() {
+    public ArrayList<T> getData() {
         return mData;
     }
 
@@ -36,7 +36,7 @@ public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.wi
         notifyDataSetChanged();
     }
 
-    public void prepend(ArrayList<T> items) {
+    public void prepend(List<T> items) {
         mData.addAll(0, items);
         notifyDataSetChanged();
     }
@@ -46,7 +46,7 @@ public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.wi
         notifyDataSetChanged();
     }
 
-    public void append(ArrayList<T> items) {
+    public void append(List<T> items) {
         mData.addAll(items);
         notifyDataSetChanged();
     }
