@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="ViewPagerActivity" parent="Theme.AppCompat">
+        <item name="actionBarStyle">@style/AppCompat.ActionBar</item>
+        <item name="colorPrimaryDark">@color/photo_status_bar_black</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/photo_status_bar_black</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppCompat.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@color/photo_action_bar_black</item>
+    </style>
+
+</resources>

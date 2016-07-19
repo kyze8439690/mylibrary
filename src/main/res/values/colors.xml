@@ -10,4 +10,10 @@
     <color name="yellow"     >#FFFFFF00</color>
     <color name="purple"     >#FFFF00FF</color>
 
+
+    <color name="default_crop_dim_color">#cc000000</color>
+    <color name="photo_status_bar_black">#d9000000</color>
+    <color name="photo_action_bar_black">#bb000000</color>
+    <color name="solid_black">#ff000000</color>
+
 </resources>

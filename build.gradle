@@ -41,4 +41,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.android.volley:volley:1.0.0'
+    provided 'pl.droidsonroids.gif:android-gif-drawable:1.1.15'
 }
