@@ -7,6 +7,9 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * View pager for photo view fragments. Define our own class so we can specify the
  * view pager in XML.
@@ -20,6 +23,7 @@ public class PhotoViewPager extends ViewPager {
     public static final int INTERCEPT_TYPE_RIGHT = 2;
     public static final int INTERCEPT_TYPE_BOTH = 3;
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({INTERCEPT_TYPE_NONE, INTERCEPT_TYPE_LEFT, INTERCEPT_TYPE_RIGHT, INTERCEPT_TYPE_BOTH})
     public @interface InterceptType {}
 
