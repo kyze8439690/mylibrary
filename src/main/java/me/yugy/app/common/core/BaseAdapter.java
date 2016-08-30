@@ -22,6 +22,7 @@ public abstract class BaseAdapter<T, E extends BaseHolder<T>> extends android.wi
         if (data == null) {
             data = new ArrayList<>();
         }
+        mData.clear();
         mData.addAll(data);
         notifyDataSetChanged();
     }
