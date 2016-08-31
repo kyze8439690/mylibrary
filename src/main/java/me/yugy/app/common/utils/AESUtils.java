@@ -1,5 +1,7 @@
 package me.yugy.app.common.utils;
 
+import android.support.annotation.Nullable;
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -22,6 +24,7 @@ public class AESUtils {
 //    String decrypt = Base64.encodeToString(encrypt, Base64.DEFAULT);
 //    DebugUtils.log(decrypt);
 
+    @Nullable
     public static byte[] AES_CFB_ENCRYPT(byte[] source, String key, IvParameterSpec ivParam) {
         try {
             Cipher cipher = Cipher.getInstance("AES/CFB/NoPadding");
@@ -34,6 +37,7 @@ public class AESUtils {
         }
     }
 
+    @Nullable
     public static byte[] AES_CFB_DECRYPT(byte[] source, String key, IvParameterSpec ivParam) {
         try {
             Cipher cipher = Cipher.getInstance("AES/CFB/NoPadding");
