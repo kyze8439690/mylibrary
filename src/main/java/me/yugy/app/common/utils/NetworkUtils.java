@@ -23,6 +23,9 @@ public class NetworkUtils {
             NetworkInfo[] info = connectivity.getAllNetworkInfo();
             if (info != null) {
                 for (NetworkInfo anInfo : info) {
+                    if (anInfo.getType() == ConnectivityManager.TYPE_VPN) {
+                        continue;
+                    }
                     if (anInfo.getState() == NetworkInfo.State.CONNECTED
                             || anInfo.getState() == NetworkInfo.State.CONNECTING) {
                         return true;
