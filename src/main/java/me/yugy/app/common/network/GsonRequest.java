@@ -6,7 +6,6 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.ParameterizedType;
@@ -16,9 +15,8 @@ import java.lang.reflect.Type;
 public class GsonRequest<T extends BaseResponse> extends BaseRequest<T> {
 
     public GsonRequest(int method, String url, @Nullable Param[] params,
-                       @Nullable Response.Listener<T> listener,
-                       @Nullable Response.ErrorListener errorListener) {
-        super(method, url, params, listener, errorListener);
+                       @Nullable RequestListener<T> listener) {
+        super(method, url, params, listener);
     }
 
     @Override
