@@ -30,8 +30,8 @@ public class AESUtils {
         try {
             /* Store these things on disk used to derive key later: */
             int iterationCount = 1000;
-            int saltLength = 32; // bytes; should be the same size as the output (256 / 8 = 32)
             int keyLength = 256; // 256-bits for AES-256, 128-bits for AES-128, etc
+            int saltLength = keyLength / 8; // bytes; should be the same size as the output (256 / 8 = 32)
 
             /* When first creating the key, obtain a salt with this: */
             SecureRandom random = new SecureRandom();
