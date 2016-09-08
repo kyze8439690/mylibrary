@@ -26,7 +26,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 /**
- * TODO
  * Exif and InputStreamBuffer were pulled in from frameworks/ex/photo, and should be part of a
  * separate library that is used by both this and chips.
  */
