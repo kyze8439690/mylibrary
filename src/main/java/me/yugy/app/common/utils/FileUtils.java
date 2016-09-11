@@ -47,21 +47,18 @@ public class FileUtils {
      * @return return directory size in bytes, return 0 if file is null or not a directory or directory is empty.
      */
     @WorkerThread
-    public static long getFileSize(File file) {
+    public static long getDirectorySize(File file) {
         if (file == null) {
             return 0L;
-        }
-        if (!file.isDirectory()) {
-            return file.length();
         }
         long totalSize = 0L;
         try {
             File[] files = file.listFiles();
             for (File f : files) {
-                if (f.isDirectory()) {
-                    totalSize += getFileSize(f);
-                } else {
+                if (f.isFile()) {
                     totalSize += f.length();
+                } else {
+                    totalSize += getDirectorySize(f);
                 }
             }
         } catch (Exception e) {
@@ -70,6 +67,7 @@ public class FileUtils {
         return totalSize;
     }
 
+    @WorkerThread
     public static boolean deleteFilesByDirectory(File dir) {
         if (dir == null) {
             return false;
