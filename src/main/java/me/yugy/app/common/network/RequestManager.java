@@ -43,4 +43,8 @@ public class RequestManager {
             }
         });
     }
+
+    public RequestQueue getRequestQueue() {
+        return mRequestQueue;
+    }
 }

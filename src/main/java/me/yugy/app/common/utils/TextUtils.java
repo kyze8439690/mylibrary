@@ -2,6 +2,7 @@ package me.yugy.app.common.utils;
 
 import android.content.Context;
 import android.text.format.DateUtils;
+import android.text.format.Formatter;
 import android.util.Patterns;
 
 import java.io.StringWriter;
@@ -10,6 +11,14 @@ import me.yugy.app.common.R;
 
 @SuppressWarnings("unused")
 public class TextUtils {
+
+    public static String formatFileSize(Context context, long sizeBytes, boolean shorter) {
+        if (shorter) {
+            return Formatter.formatShortFileSize(context, sizeBytes);
+        } else {
+            return Formatter.formatFileSize(context, sizeBytes);
+        }
+    }
 
     public static boolean isCharCJK(final char c) {
         //noinspection RedundantIfStatement

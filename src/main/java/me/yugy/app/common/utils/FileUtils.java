@@ -1,5 +1,7 @@
 package me.yugy.app.common.utils;
 
+import android.support.annotation.WorkerThread;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -38,6 +40,50 @@ public class FileUtils {
             return array[array.length - 1];
         }
         return "";
+    }
+
+    /**
+     * Get total size of a directory
+     * @return return directory size in bytes, return 0 if file is null or not a directory or directory is empty.
+     */
+    @WorkerThread
+    public static long getFileSize(File file) {
+        if (file == null) {
+            return 0L;
+        }
+        if (!file.isDirectory()) {
+            return file.length();
+        }
+        long totalSize = 0L;
+        try {
+            File[] files = file.listFiles();
+            for (File f : files) {
+                if (f.isDirectory()) {
+                    totalSize += getFileSize(f);
+                } else {
+                    totalSize += f.length();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalSize;
+    }
+
+    public static boolean deleteFilesByDirectory(File dir) {
+        if (dir == null) {
+            return false;
+        }
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (String aChildren : children) {
+                boolean success = deleteFilesByDirectory(new File(dir, aChildren));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
     }
 
 }
