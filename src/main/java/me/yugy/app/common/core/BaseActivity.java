@@ -1,6 +1,7 @@
 package me.yugy.app.common.core;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -27,6 +28,10 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public Activity getActivity() {
+        return this;
+    }
+
+    public Context getContext() {
         return this;
     }
 
