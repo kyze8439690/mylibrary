@@ -3,7 +3,6 @@ package me.yugy.app.common.widget;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -16,6 +15,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ShareCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -314,13 +314,13 @@ public class ScreenShotLayout extends FrameLayout {
                     .append("\n");
 
 
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-            emailIntent.setType("application/image");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"me@yanghui.name"});
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, title);
-            emailIntent.putExtra(Intent.EXTRA_TEXT, contentBuilder.toString());
-            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(screenshotSavePath));
-            getContext().startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            ShareCompat.IntentBuilder.from((Activity) getContext())
+                    .setChooserTitle("发送反馈邮件")
+                    .setEmailTo(new String[]{"me@yanghui.name"})
+                    .setText(contentBuilder.toString())
+                    .addStream(Uri.parse(screenshotSavePath))
+                    .setType("message/rfc822")
+                    .setSubject(title).startChooser();
         }
         mIsInScreenShotAnimation = false;
     }
