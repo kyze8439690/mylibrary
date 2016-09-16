@@ -4,4 +4,8 @@
     <dimen name="default_crop_size">280dp</dimen>
     <dimen name="default_crop_border_size">1dp</dimen>
 
+    <!-- ScreenShotLayout -->
+    <dimen name="ring_stroke_size">16dp</dimen>
+    <dimen name="ring_size">128dp</dimen>
+    <dimen name="screenshot_padding">16dp</dimen>
 </resources>

@@ -14,4 +14,11 @@
         <item name="background">@color/photo_action_bar_black</item>
     </style>
 
+    <style name="TransparentActivity" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>
