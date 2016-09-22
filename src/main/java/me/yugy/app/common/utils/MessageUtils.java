@@ -3,6 +3,7 @@ package me.yugy.app.common.utils;
 import android.content.Context;
 import android.os.Looper;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -21,7 +22,14 @@ public class MessageUtils {
         Looper.myLooper().quit();
     }
 
-    public static void snack(@Nullable ViewGroup container, String text) {
+    public static void snack(@Nullable ViewGroup container, @StringRes int resId) {
+        if (container == null) {
+            return;
+        }
+        snack(container, container.getResources().getText(resId));
+    }
+
+    public static void snack(@Nullable ViewGroup container, CharSequence text) {
         if (container == null) {
             return;
         }
