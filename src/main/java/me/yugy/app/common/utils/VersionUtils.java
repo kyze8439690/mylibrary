@@ -67,4 +67,11 @@ public class VersionUtils {
     public static boolean nougatOrLater() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
+
+    /**
+     * Return {@code true} if api level >= 25.
+     */
+    public static boolean nougatMR1OrLater() {
+        return Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1;
+    }
 }
