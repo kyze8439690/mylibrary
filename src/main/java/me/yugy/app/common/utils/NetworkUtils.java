@@ -3,6 +3,7 @@ package me.yugy.app.common.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 
 import java.util.UUID;
 
@@ -16,6 +17,9 @@ public class NetworkUtils {
     }
 
     public static boolean isNetworkAvailable(Context context) {
+        if (context == null) {
+            return false;
+        }
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity == null) {
             return false;
