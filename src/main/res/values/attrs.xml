@@ -17,4 +17,11 @@
         <attr name="pv_crop_allow_overscroll" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="ProgressView">
+        <attr name="pgv_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="pgv_color" format="color" />
+    </declare-styleable>
 </resources>
